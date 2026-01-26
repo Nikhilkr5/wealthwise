@@ -1,36 +1,69 @@
-# WealthWise — AI-Powered Personal Finance Platform 💰
+# 💰 WealthWise - Full-Stack Personal Finance Dashboard
 
-A comprehensive financial management dashboard built with **Next.js 15**, **Prisma**, and **Groq AI**.
-WealthWise helps users track income & expenses, visualize spending trends, and receive AI-generated monthly financial insights.
+WealthWise is a modern, high-performance financial tracking application designed to help users manage their transactions, budgets, and accounts with ease. Built with a focus on security, scalability, and real-time data visualization.
 
-## 🧠 Engineering & Architecture
+## 🚀 Live Demo
+**Check out the live app:** [https://wealthwise-seven-psi.vercel.app](https://wealthwise-seven-psi.vercel.app)
 
-This project was architected to solve latency and rate-limiting issues common in financial AI apps.
-* **AI Inference Engine:** Migrated from Gemini to **Groq (Llama 3-70b)** to achieve <1s inference speeds and bypass standard API rate limits.
-* **Database Reliability:** Uses **Prisma ORM** with connection pooling (via NeonDB) to handle high-concurrency transaction requests.
-* **Security First:** Implemented **ArcJet** middleware for rate-limiting and bot protection.
+---
 
 ## 🛠️ Tech Stack
 
-* **Frontend:** Next.js 15 (App Router), Tailwind CSS, Shadcn UI
-* **Backend:** Server Actions, Prisma ORM
-* **Database:** PostgreSQL (Neon)
-* **AI Engine:** Llama 3 via Groq SDK
-* **Auth:** Clerk (Middleware protected)
-* **Background Jobs:** Inngest (Cron jobs for monthly reporting)
-
-## 🔧 Engineering Challenges Solved
-
-1.  **Next.js 15 Async Params:** Refactored dynamic routes (`/account/[id]`) to utilize `await params`, resolving breaking changes in the latest Next.js 15 release.
-2.  **AI Latency Optimization:** Built a fallback mechanism for the AI service to ensure the app generates insights even under high load.
-3.  **Budget Logic:** Implemented custom "Danger Zone" logic that dynamically calculates budget usage and alerts users when spending exceeds 80%.
-
-## 🚀 Getting Started
-
-1.  Clone the repository
-2.  Install dependencies: `npm install`
-3.  Set up environment variables (`GROQ_API_KEY`, `DATABASE_URL`)
-4.  Run the development server: `npm run dev`
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Database:** PostgreSQL (Supabase)
+- **ORM:** Prisma
+- **Authentication:** Clerk
+- **Styling:** Tailwind CSS & Shadcn/UI
+- **Security:** Arcjet (Rate Limiting & Bot Protection)
+- **Background Tasks:** Inngest
+- **AI Integration:** Groq AI (for financial insights)
 
 ---
-*Built by Nikhil*
+
+## 🧨 Technical Challenges & Solutions (The "No-Reject" Section)
+
+During the development of WealthWise, I encountered and solved several production-level challenges that go beyond standard tutorials:
+
+### 1. Database Connection Pooling (Vercel + Supabase)
+**Problem:** Encountered `prepared statement "s2" does not exist` errors when deploying serverless functions, caused by Prisma trying to use prepared statements with Supabase's transaction pooler.
+**Solution:** Migrated the connection to the **Supabase Transaction Pooler (Port 6543)** and updated the `DATABASE_URL` with `?pgbouncer=true` and `&connection_limit=1`. This allowed the app to handle high concurrency in a serverless environment without exhausting database connections.
+
+### 2. Secure Middleware Architecture
+**Problem:** Implementing multi-layered security (Auth + Rate Limiting) without compromising performance.
+**Solution:** Integrated **Arcjet** alongside **Clerk Middleware**. This setup ensures that only authenticated users can access the dashboard while simultaneously protecting API routes from malicious bots and brute-force attacks.
+
+---
+
+## ✨ Features
+
+- **Interactive Dashboard:** Real-time charts for income vs. expense tracking using Recharts.
+- **Transaction Management:** Easily add, edit, and categorize expenses with instant UI updates.
+- **Budgeting System:** Set monthly limits and get visual progress alerts.
+- **AI Insights:** Automated financial advice based on spending patterns using Groq AI.
+- **Multi-Account Support:** Manage different wallets and bank accounts in one place.
+
+---
+
+## 🛠️ Local Setup
+
+1. **Clone the repo:**
+   ```bash
+   git clone [https://github.com/Nikhilkr5/wealthwise.git](https://github.com/Nikhilkr5/wealthwise.git)
+Install dependencies:
+
+Bash
+
+npm install
+Set up environment variables: Create a .env file and add your Clerk, Supabase, and Arcjet keys.
+
+Push the database schema:
+
+Bash
+
+npx prisma db push
+Run the development server:
+
+Bash
+
+npm run dev
