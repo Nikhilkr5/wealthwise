@@ -56,15 +56,15 @@ During the development of WealthWise, I encountered and solved several productio
 
 3. Set up environment variables: Create a .env file in the root directory and add your keys:
 
-      NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
-      
-      CLERK_SECRET_KEY
-      
-      DATABASE_URL (with ?pgbouncer=true)
-      
-      ARCJET_KEY
-      
-      GROQ_API_KEY
+         NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+         
+         CLERK_SECRET_KEY
+         
+         DATABASE_URL (with ?pgbouncer=true)
+         
+         ARCJET_KEY
+         
+         GROQ_API_KEY
    
 4. Push the database schema:
       npx prisma db push
