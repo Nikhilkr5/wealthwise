@@ -52,9 +52,10 @@ During the development of WealthWise, I encountered and solved several productio
    git clone https://github.com/Nikhilkr5/wealthwise.git
    
 2. Install dependencies:
-      npm install
+   
+         npm install
 
-3. Set up environment variables: Create a .env file in the root directory and add your keys:
+4. Set up environment variables: Create a .env file in the root directory and add your keys:
 
          NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
          
@@ -66,11 +67,13 @@ During the development of WealthWise, I encountered and solved several productio
          
          GROQ_API_KEY
    
-4. Push the database schema:
-      npx prisma db push
+5. Push the database schema:
    
-6. Run the development server:
-      npm run dev 
+         npx prisma db push
+   
+7. Run the development server:
+   
+         npm run dev 
    
 
    
