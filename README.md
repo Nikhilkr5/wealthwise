@@ -50,20 +50,20 @@ During the development of WealthWise, I encountered and solved several productio
 1. **Clone the repo:**
    ```bash
    git clone [https://github.com/Nikhilkr5/wealthwise.git](https://github.com/Nikhilkr5/wealthwise.git)
-Install dependencies:
+   
+2. Install dependencies:
+      npm install
+   
+4. Set up environment variables: Create a .env file in the root directory and add your keys:
+      NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+      CLERK_SECRET_KEY
+      DATABASE_URL (with ?pgbouncer=true)
+      ARCJET_KEY
+      GROQ_API_KEY
+   
+5. Push the database schema:
+      npx prisma db push
+   
+7. Run the development server:
+      npm run dev
 
-Bash
-
-npm install
-Set up environment variables: Create a .env file and add your Clerk, Supabase, and Arcjet keys.
-
-Push the database schema:
-
-Bash
-
-npx prisma db push
-Run the development server:
-
-Bash
-
-npm run dev
