@@ -10,20 +10,20 @@ import {
 // Stats Data
 export const statsData = [
   {
-    value: "50K+",
-    label: "Active Users",
+    value: "Type Safe",
+    label: "TypeScript Architecture",
   },
   {
-    value: "$2B+",
-    label: "Transactions Tracked",
+    value: "AI-Driven",
+    label: "Groq AI Integration",
   },
   {
-    value: "99.9%",
-    label: "Uptime",
+    value: "Secure",
+    label: "Arcjet Protection",
   },
   {
-    value: "4.9/5",
-    label: "User Rating",
+    value: "Optimized",
+    label: "Next.js 15 Performance",
   },
 ];
 
