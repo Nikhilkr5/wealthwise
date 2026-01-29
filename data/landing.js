@@ -88,24 +88,24 @@ export const howItWorksData = [
 // Testimonials Data
 export const testimonialsData = [
   {
-    name: "Sarah Johnson",
-    role: "Small Business Owner",
-    image: "https://randomuser.me/api/portraits/women/75.jpg",
+    name: "Arjun Mehta",
+    role: "Financial Analyst",
+    image: "https://randomuser.me/api/portraits/men/32.jpg",
     quote:
-      "Welth has transformed how I manage my business finances. The AI insights have helped me identify cost-saving opportunities I never knew existed.",
+      "WealthWise has completely changed how I track capital flows. The AI-driven insights helped me identify portfolio optimizations that saved me significant overhead last quarter.",
   },
   {
-    name: "Michael Chen",
-    role: "Freelancer",
-    image: "https://randomuser.me/api/portraits/men/75.jpg",
+    name: "Sarah Chen",
+    role: "Software Engineer",
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
     quote:
-      "The receipt scanning feature saves me hours each month. Now I can focus on my work instead of manual data entry and expense tracking.",
+      "I was impressed by the system's reliability. The real-time categorization is seamless, and knowing the architecture is type-safe gives me great confidence in the data integrity.",
   },
   {
-    name: "Emily Rodriguez",
-    role: "Financial Advisor",
-    image: "https://randomuser.me/api/portraits/women/74.jpg",
+    name: "Vikram Malhotra",
+    role: "Product Manager",
+    image: "https://randomuser.me/api/portraits/men/46.jpg",
     quote:
-      "I recommend Welth to all my clients. The multi-currency support and detailed analytics make it perfect for international investors.",
+      "The smart receipt scanning is a game-changer for expense reports. It's rare to see an AI implementation this fast and accurate in a personal finance tool.",
   },
 ];
