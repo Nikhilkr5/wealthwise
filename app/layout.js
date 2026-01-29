@@ -6,7 +6,6 @@ import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Updated Metadata for Professional Branding
 export const metadata = {
   title: "WealthWise | AI-Powered Finance Platform",
   description: "Enterprise-grade personal finance management with AI insights.",
@@ -25,14 +24,17 @@ export default function RootLayout({ children }) {
           <main className="min-h-screen">{children}</main>
           <Toaster richColors />
 
-          {/* Professional Footer Branding */}
           <footer className="bg-blue-50 py-12 border-t">
-            <div className="container mx-auto px-4 text-center text-gray-600">
-              <p>© 2026 WealthWise. All rights reserved.</p>
-              <p className="mt-2 text-sm">
-                Developed by <span className="font-semibold text-blue-600">Nikhil Kumar Thakur</span>
+            <div className="container mx-auto px-4 text-center text-sm text-gray-500">
+              <p>© {new Date().getFullYear()} WealthWise. All rights reserved.</p>
+              <p className="mt-2">
+                Built with <span className="font-medium text-gray-700">Next.js</span>, 
+                <span className="font-medium text-gray-700"> Prisma</span> & 
+                <span className="font-medium text-gray-700"> AI-powered insights</span>
               </p>
-              <p className="text-xs mt-1">B.Tech Computer Science & Engineering | 2026 Batch</p>
+              <p className="mt-1 text-gray-400">
+                Designed & Developed by <span className="font-semibold text-blue-600">Nikhil Kumar Thakur</span>
+              </p>
             </div>
           </footer>
         </body>
