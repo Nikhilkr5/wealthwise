@@ -1,79 +1,78 @@
-# 💰 WealthWise - Full-Stack Personal Finance Dashboard
+# 💰 WealthWise - Personal Finance Dashboard
 
-WealthWise is a modern, high-performance financial tracking application designed to help users manage their transactions, budgets, and accounts with ease. Built with a focus on security, scalability, and real-time data visualization.
+WealthWise is a personal finance application that helps users manage accounts, track transactions, set budgets, and view financial insights through an interactive dashboard.
 
 ## 🚀 Live Demo
-**Check out the live app:** [https://wealthwise-seven-psi.vercel.app](https://wealthwise-seven-psi.vercel.app)
+
+**Check out the live app:**  
+https://wealthwise-seven-psi.vercel.app
 
 ---
 
 ## 🛠️ Tech Stack
 
 - **Framework:** Next.js 15 (App Router)
-- **Language:** TypeScript
+- **Language:** JavaScript
 - **Database:** PostgreSQL (Supabase)
 - **ORM:** Prisma
 - **Authentication:** Clerk
 - **Styling:** Tailwind CSS & Shadcn/UI
-- **Security:** Arcjet (Rate Limiting & Bot Protection)
+- **Security:** Arcjet
 - **Background Tasks:** Inngest
-- **AI Integration:** Groq AI (for financial insights)
-
----
-
-## 🧨 Technical Challenges & Solutions (The "No-Reject" Section)
-
-During the development of WealthWise, I encountered and solved several production-level challenges that go beyond standard tutorials:
-
-### 1. Database Connection Pooling (Vercel + Supabase)
-**Problem:** Encountered `prepared statement "s2" does not exist` errors when deploying serverless functions, caused by Prisma trying to use prepared statements with Supabase's transaction pooler.
-**Solution:** Migrated the connection to the **Supabase Transaction Pooler (Port 6543)** and updated the `DATABASE_URL` with `?pgbouncer=true` and `&connection_limit=1`. This allowed the app to handle high concurrency in a serverless environment without exhausting database connections.
-
-### 2. Secure Middleware Architecture
-**Problem:** Implementing multi-layered security (Auth + Rate Limiting) without compromising performance.
-**Solution:** Integrated **Arcjet** alongside **Clerk Middleware**. This setup ensures that only authenticated users can access the dashboard while simultaneously protecting API routes from malicious bots and brute-force attacks.
+- **AI Integration:** Groq AI
+- **Charts:** Recharts
 
 ---
 
 ## ✨ Features
 
-- **Interactive Dashboard:** Real-time charts for income vs. expense tracking using Recharts.
-- **Transaction Management:** Easily add, edit, and categorize expenses with instant UI updates.
-- **Budgeting System:** Set monthly limits and get visual progress alerts.
-- **AI Insights:** Automated financial advice based on spending patterns using Groq AI.
-- **Multi-Account Support:** Manage different wallets and bank accounts in one place.
+- **Interactive Dashboard:** Visualizes income and expenses using charts.
+- **Transaction Management:** Add and manage financial transactions.
+- **Account Management:** Manage multiple financial accounts.
+- **Budgeting:** Set budgets and monitor spending progress.
+- **AI Insights:** Generate financial insights using Groq AI.
+- **Authentication:** Secure user authentication with Clerk.
+- **Request Protection:** Uses Arcjet for request protection and rate limiting.
 
 ---
 
-## 🛠️ Local Setup
+## 🧨 Technical Challenges & Solutions
 
-1. **Clone the repo:**
-   ```bash
-   git clone https://github.com/Nikhilkr5/wealthwise.git
-   
-2. Install dependencies:
-   
-         npm install
+### 1. Database Connection Configuration
 
-4. Set up environment variables: Create a .env file in the root directory and add your keys:
+**Problem:**  
+While deploying the application, I encountered a PostgreSQL prepared-statement error:
 
-         NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
-         
-         CLERK_SECRET_KEY
-         
-         DATABASE_URL (with ?pgbouncer=true)
-         
-         ARCJET_KEY
-         
-         GROQ_API_KEY
-   
-5. Push the database schema:
-   
-         npx prisma db push
-   
-7. Run the development server:
-   
-         npm run dev 
-   
+`prepared statement "s2" does not exist`
 
-   
+**Cause:**  
+The issue was related to Prisma's database connection configuration when using Supabase's transaction pooler in a serverless deployment.
+
+**Solution:**  
+I configured the Supabase Transaction Pooler on port `6543` and updated the database connection configuration using `pgbouncer=true` and `connection_limit=1`.
+
+This resolved the database connection issue and helped make the configuration more suitable for the serverless deployment.
+
+### 2. Authentication and Request Protection
+
+**Problem:**  
+The application needed both user authentication and protection against excessive or unwanted requests.
+
+**Solution:**  
+I integrated **Clerk** for authentication and **Arcjet** for request protection and rate limiting. These components work together as part of the application's security layer.
+
+---
+
+## 📁 Project Structure
+
+```text
+wealthwise/
+├── actions/
+├── app/
+├── components/
+├── hooks/
+├── lib/
+├── prisma/
+├── public/
+├── middleware.js
+└── package.json
